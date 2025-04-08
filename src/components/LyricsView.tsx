@@ -93,7 +93,7 @@ export function LyricsView({ song, isDark }: LyricsViewProps) {
                     className={`w-full font-medium text-left p-2 rounded transition-colors cursor-pointer ${
                       storedHighlights[line.index]
                         ? isDark
-                          ? "bg-red-900 hover:bg-red-800 text-red-100"
+                          ? "bg-red-900/40 hover:bg-red-800/50 text-red-100"
                           : "bg-red-100 hover:bg-red-200 text-red-900"
                         : isDark
                           ? "hover:bg-gray-700 text-white"

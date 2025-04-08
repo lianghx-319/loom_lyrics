@@ -25,7 +25,7 @@ function App() {
 
   return (
     <div className={`min-h-screen ${isDark ? 'dark bg-gray-900' : 'bg-gray-50'}`}>
-      <div className="max-w-4xl mx-auto py-8 px-4">
+      <div className="max-w-4xl mx-auto py-8 px-4 pt-safe">
         <h1 className={`text-3xl font-bold mb-8 ${isDark ? 'text-white' : 'text-gray-900'}`}>
           Imagine Dragons LOOM 2025 ShenZhen
         </h1>
