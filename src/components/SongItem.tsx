@@ -6,29 +6,16 @@ interface SongItemProps {
 
 export function SongItem({ song }: SongItemProps) {
   return (
-    <div className="grid grid-cols-[min-content,1fr] grid-rows-[min-content,1fr] gap-2 py-2 cursor-pointer active:bg-gray-100">
+    <a href={`#${song.id}`} className="items-center grid grid-cols-[max-content_1fr] grid-rows-[max-content_1fr] gap-x-2 gap-y-1 cursor-pointer active:bg-gray-100 bg-white rounded-lg shadow p-2">
       <img
-        className="w-5 h-5"
+        className="w-12 h-12 row-span-full"
         src={song.coverImage}
         alt={song.album}
-        onError={(e) => {
-          // 图片加载失败时显示颜色块
-          const target = e.target as HTMLImageElement;
-          target.style.display = "none";
-          target.parentElement!.style.backgroundColor =
-            song.album === "LOOM"
-              ? "#ff4d4d"
-              : song.album === "Evolve"
-                ? "#4a90e2"
-                : song.album === "Origins (Deluxe)"
-                  ? "#50c878"
-                  : "#9b9b9b";
-        }}
       />
       <div className="font-medium text-base truncate">{song.title}</div>
       <div className="text-sm text-gray-500 truncate">
         Imagine Dragons - {song.album}
       </div>
-    </div>
+    </a>
   );
 }
