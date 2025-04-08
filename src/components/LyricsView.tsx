@@ -16,9 +16,10 @@ interface LyricSection {
 
 interface LyricsViewProps {
   song: Song;
+  isDark: boolean;
 }
 
-export function LyricsView({ song }: LyricsViewProps) {
+export function LyricsView({ song, isDark }: LyricsViewProps) {
   const [highlights, setHighlights] = useLocalStorage<Record<number, boolean>>(
     `lyrics-highlights-${song.id}`,
     {},
@@ -75,10 +76,10 @@ export function LyricsView({ song }: LyricsViewProps) {
   return (
     <div
       id={song.id}
-      className="max-w-2xl mx-auto bg-white rounded-lg shadow-md"
+      className={`max-w-2xl mx-auto rounded-lg shadow-md ${isDark ? 'bg-gray-800' : 'bg-white'}`}
     >
-      <div className="sticky top-0 z-10 bg-white rounded-t-lg shadow-sm">
-        <SongItem song={song} />
+      <div className={`sticky top-0 z-10 rounded-t-lg shadow-sm ${isDark ? 'bg-gray-800' : 'bg-white'}`}>
+        <SongItem song={song} isDark={isDark} />
       </div>
       <div className="p-2">
         <div className="space-y-3">
@@ -91,8 +92,12 @@ export function LyricsView({ song }: LyricsViewProps) {
                     onClick={() => toggleHighlight(line.index)}
                     className={`w-full font-medium text-left p-2 rounded transition-colors cursor-pointer ${
                       storedHighlights[line.index]
-                        ? "bg-red-100 hover:bg-red-200 text-red-900"
-                        : "hover:bg-gray-100"
+                        ? isDark
+                          ? "bg-red-900 hover:bg-red-800 text-red-100"
+                          : "bg-red-100 hover:bg-red-200 text-red-900"
+                        : isDark
+                          ? "hover:bg-gray-700 text-white"
+                          : "hover:bg-gray-100 text-gray-900"
                     }`}
                   >
                     {line.text}
