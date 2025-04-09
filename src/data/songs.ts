@@ -21,11 +21,14 @@ import niceToMeetYouLyrics from "../assets/lyrics/nice-to-meet-you.txt?raw";
 import wakeUpLyrics from "../assets/lyrics/wake-up.txt?raw";
 import radioactiveLyrics from "../assets/lyrics/radioactive.txt?raw";
 import dontForgetMeLyrics from "../assets/lyrics/dont-forget-me.txt?raw";
+import demonsLyrics from "../assets/lyrics/demons.txt";
 import enemyLyrics from "../assets/lyrics/enemy.txt?raw";
 import eyesClosedLyrics from "../assets/lyrics/eyes-closed.txt?raw";
 import inYourCornerLyrics from "../assets/lyrics/in-your-corner.txt?raw";
 import believerLyrics from "../assets/lyrics/believer.txt?raw";
 import sharksLyrics from "../assets/lyrics/sharks.txt?raw";
+import walkingTheWireLyrics from "../assets/lyrics/walking-the-wire.txt?raw";
+import naturalLyrics from "../assets/lyrics/natural.txt?raw";
 
 export const SONGS: Song[] = [
   createLoomSong({
@@ -74,15 +77,15 @@ export const SONGS: Song[] = [
   }),
   createNightVisionsSong({
     title: "Demons",
-    lyricsFile: dontForgetMeLyrics,
+    lyricsFile: demonsLyrics,
   }),
   createOriginsSong({
     title: "Natural",
-    lyricsFile: takeMeToTheBeachLyrics,
+    lyricsFile: naturalLyrics,
   }),
   createEvolveSong({
     title: "Walking the wire",
-    lyricsFile: enemyLyrics,
+    lyricsFile: walkingTheWireLyrics,
   }),
   createMercurySong({
     title: "Sharks",
@@ -90,11 +93,11 @@ export const SONGS: Song[] = [
   }),
   createMercurySong({
     title: "Enemy",
-    lyricsFile: eyesClosedLyrics,
+    lyricsFile: enemyLyrics,
   }),
   createLoomSong({
     title: "Eyes closed",
-    lyricsFile: tiptoeLyrics,
+    lyricsFile: eyesClosedLyrics,
   }),
   createLoomSong({
     title: "In your corner",
@@ -102,7 +105,7 @@ export const SONGS: Song[] = [
   }),
   createLoomSong({
     title: "Don't forget me",
-    lyricsFile: wakeUpLyrics,
+    lyricsFile: dontForgetMeLyrics,
   }),
   createEvolveSong({
     title: "Believer",
