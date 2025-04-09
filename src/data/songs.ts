@@ -21,7 +21,7 @@ import niceToMeetYouLyrics from "../assets/lyrics/nice-to-meet-you.txt?raw";
 import wakeUpLyrics from "../assets/lyrics/wake-up.txt?raw";
 import radioactiveLyrics from "../assets/lyrics/radioactive.txt?raw";
 import dontForgetMeLyrics from "../assets/lyrics/dont-forget-me.txt?raw";
-import demonsLyrics from "../assets/lyrics/demons.txt";
+import demonsLyrics from "../assets/lyrics/demons.txt?raw";
 import enemyLyrics from "../assets/lyrics/enemy.txt?raw";
 import eyesClosedLyrics from "../assets/lyrics/eyes-closed.txt?raw";
 import inYourCornerLyrics from "../assets/lyrics/in-your-corner.txt?raw";
