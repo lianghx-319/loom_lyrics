@@ -76,37 +76,38 @@ export function LyricsView({ song, isDark }: LyricsViewProps) {
   return (
     <div
       id={song.id}
-      className={`max-w-2xl mx-auto rounded-lg shadow-md ${isDark ? 'bg-gray-800' : 'bg-white'}`}
+      className={`max-w-2xl mx-auto rounded-lg shadow-md ${isDark ? "bg-gray-800" : "bg-white"}`}
     >
-      <div className={`sticky top-0 z-10 rounded-t-lg shadow-sm ${isDark ? 'bg-gray-800' : 'bg-white'}`}>
+      <div
+        className={`sticky top-0 z-10 rounded-t-lg shadow-sm ${isDark ? "bg-gray-800" : "bg-white"}`}
+      >
         <SongItem song={song} isDark={isDark} />
       </div>
-      <div className="p-2">
-        <div className="space-y-3">
-          {sections.map((section, sectionIndex) => (
-            <div key={`${section.name}-${sectionIndex}`} className="space-y-2">
-              <div className="space-y-1">
-                {section.lines.map((line) => (
-                  <div
-                    key={`${line.index}`}
-                    onClick={() => toggleHighlight(line.index)}
-                    className={`w-full font-medium text-left p-2 rounded transition-colors cursor-pointer ${
-                      storedHighlights[line.index]
-                        ? isDark
-                          ? "bg-red-900/40 hover:bg-red-800/50 text-red-100"
-                          : "bg-red-100 hover:bg-red-200 text-red-900"
-                        : isDark
-                          ? "hover:bg-gray-700 text-white"
-                          : "hover:bg-gray-100 text-gray-900"
-                    }`}
-                  >
-                    {line.text}
-                  </div>
-                ))}
+      <div className="p-2 flex flex-col gap-5">
+        {sections.map((section, sectionIndex) => (
+          <div
+            key={`${section.name}-${sectionIndex}`}
+            className="flex flex-col gap-0.5"
+          >
+            {section.lines.map((line) => (
+              <div
+                key={`${line.index}`}
+                onClick={() => toggleHighlight(line.index)}
+                className={`w-full font-medium leading-tight text-left px-2 py-0.5 rounded transition-colors cursor-pointer ${
+                  storedHighlights[line.index]
+                    ? isDark
+                      ? "bg-red-900/40 hover:bg-red-800/50 text-red-100"
+                      : "bg-red-100 hover:bg-red-200 text-red-900"
+                    : isDark
+                      ? "hover:bg-gray-700 text-white"
+                      : "hover:bg-gray-100 text-gray-900"
+                }`}
+              >
+                {line.text}
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ))}
       </div>
     </div>
   );
