@@ -1,119 +1,106 @@
-import {
-  createEvolveSong,
-  createLoomSong,
-  createMercurySong,
-  createNightVisionsSong,
-  createOriginsSong,
-  createSmokeMirrosSong,
-  Song,
-} from "../types";
+import { createLoomSong, Song } from "../types";
 
 // 导入歌词文件
-import fireInTheseHillsLyrics from "../assets/lyrics/fire-in-these-hills.txt?raw";
-import thunderLyrics from "../assets/lyrics/thunder.txt?raw";
-import bonesLyrics from "../assets/lyrics/bones.txt?raw";
-import tiptoeLyrics from "../assets/lyrics/tiptoe.txt?raw";
-import takeMeToTheBeachLyrics from "../assets/lyrics/take-me-to-the-beach.txt?raw";
-import whateverItTakesLyrics from "../assets/lyrics/whatever-it-takes.txt?raw";
-import shotsLyrics from "../assets/lyrics/shots.txt?raw";
-import badLiarLyrics from "../assets/lyrics/bad-liar.txt?raw";
-import niceToMeetYouLyrics from "../assets/lyrics/nice-to-meet-you.txt?raw";
-import wakeUpLyrics from "../assets/lyrics/wake-up.txt?raw";
-import radioactiveLyrics from "../assets/lyrics/radioactive.txt?raw";
-import dontForgetMeLyrics from "../assets/lyrics/dont-forget-me.txt?raw";
-import demonsLyrics from "../assets/lyrics/demons.txt?raw";
-import enemyLyrics from "../assets/lyrics/enemy.txt?raw";
-import eyesClosedLyrics from "../assets/lyrics/eyes-closed.txt?raw";
-import inYourCornerLyrics from "../assets/lyrics/in-your-corner.txt?raw";
-import believerLyrics from "../assets/lyrics/believer.txt?raw";
-import sharksLyrics from "../assets/lyrics/sharks.txt?raw";
-import walkingTheWireLyrics from "../assets/lyrics/walking-the-wire.txt?raw";
-import naturalLyrics from "../assets/lyrics/natural.txt?raw";
-import 很需要 from "../assets/lyrics/a.txt?raw";
+import aidetaichi from "../assets/lyrics/aidetaichi.txt?raw";
+import aidexiguan from "../assets/lyrics/aidexiguan.txt?raw";
+import aiyucheng from "../assets/lyrics/aiyucheng.txt?raw";
+import baole from "../assets/lyrics/baole.txt?raw";
+import bishaji from "../assets/lyrics/bishaji.txt?raw";
+import haoren from "../assets/lyrics/haoren.txt?raw";
+import haoxianghaoxiang from "../assets/lyrics/haoxianghaoxiang.txt?raw";
+import kgezhiwang from "../assets/lyrics/kgezhiwang.txt?raw";
+import kong from "../assets/lyrics/kong.txt?raw";
+import meilizhizui from "../assets/lyrics/meilizhizui.txt?raw";
+import mingying from "../assets/lyrics/mingying.txt?raw";
+import monica from "../assets/lyrics/monica.txt?raw";
+import nanrenktv from "../assets/lyrics/nanrenktv.txt?raw";
+import qingge from "../assets/lyrics/qingge.txt?raw";
+import qinggewang from "../assets/lyrics/qinggewang.txt?raw";
+import qingyongluo from "../assets/lyrics/qingyongluo.txt?raw";
+import sanshiri from "../assets/lyrics/sanshiri.txt?raw";
+import woyoujinri from "../assets/lyrics/woyoujinri.txt?raw";
+import xuyuan from "../assets/lyrics/xuyuan.txt?raw";
+import yanjingbunengmeiyanlei from "../assets/lyrics/yanjingbunengmeiyanlei.txt?raw";
 
 export const SONGS: Song[] = [
   createLoomSong({
-    title: "很需要",
-    lyricsFile: 很需要,
+    title: "爱得太迟",
+    lyricsFile: aidetaichi,
   }),
   createLoomSong({
-    title: "Fire in this hills",
-    lyricsFile: fireInTheseHillsLyrics,
-  }),
-  createEvolveSong({
-    title: "Thunder",
-    lyricsFile: thunderLyrics,
-  }),
-  createMercurySong({
-    title: "Bones",
-    lyricsFile: bonesLyrics,
-  }),
-  createNightVisionsSong({
-    title: "Tiptoe",
-    lyricsFile: tiptoeLyrics,
+    title: "爱的习惯",
+    lyricsFile: aidexiguan,
   }),
   createLoomSong({
-    title: "Take me to the beach",
-    lyricsFile: takeMeToTheBeachLyrics,
-  }),
-  createEvolveSong({
-    title: "Whatever it takes",
-    lyricsFile: whateverItTakesLyrics,
-  }),
-  createSmokeMirrosSong({
-    title: "Shots",
-    lyricsFile: shotsLyrics,
-  }),
-  createOriginsSong({
-    title: "Bad liar",
-    lyricsFile: badLiarLyrics,
+    title: "爱与诚",
+    lyricsFile: aiyucheng,
   }),
   createLoomSong({
-    title: "Nice to meet you",
-    lyricsFile: niceToMeetYouLyrics,
+    title: "爆了",
+    lyricsFile: baole,
   }),
   createLoomSong({
-    title: "Wake up",
-    lyricsFile: wakeUpLyrics,
-  }),
-  createNightVisionsSong({
-    title: "Radioactive",
-    lyricsFile: radioactiveLyrics,
-  }),
-  createNightVisionsSong({
-    title: "Demons",
-    lyricsFile: demonsLyrics,
-  }),
-  createOriginsSong({
-    title: "Natural",
-    lyricsFile: naturalLyrics,
-  }),
-  createEvolveSong({
-    title: "Walking the wire",
-    lyricsFile: walkingTheWireLyrics,
-  }),
-  createMercurySong({
-    title: "Sharks",
-    lyricsFile: sharksLyrics,
-  }),
-  createMercurySong({
-    title: "Enemy",
-    lyricsFile: enemyLyrics,
+    title: "必杀技",
+    lyricsFile: bishaji,
   }),
   createLoomSong({
-    title: "Eyes closed",
-    lyricsFile: eyesClosedLyrics,
+    title: "好人",
+    lyricsFile: haoren,
   }),
   createLoomSong({
-    title: "In your corner",
-    lyricsFile: inYourCornerLyrics,
+    title: "好想好想",
+    lyricsFile: haoxianghaoxiang,
   }),
   createLoomSong({
-    title: "Don't forget me",
-    lyricsFile: dontForgetMeLyrics,
+    title: "K歌之王",
+    lyricsFile: kgezhiwang,
   }),
-  createEvolveSong({
-    title: "Believer",
-    lyricsFile: believerLyrics,
+  createLoomSong({
+    title: "Kong",
+    lyricsFile: kong,
+  }),
+  createLoomSong({
+    title: "美丽之最",
+    lyricsFile: meilizhizui,
+  }),
+  createLoomSong({
+    title: "命硬",
+    lyricsFile: mingying,
+  }),
+  createLoomSong({
+    title: "Monica",
+    lyricsFile: monica,
+  }),
+  createLoomSong({
+    title: "男人KTV",
+    lyricsFile: nanrenktv,
+  }),
+  createLoomSong({
+    title: "情歌",
+    lyricsFile: qingge,
+  }),
+  createLoomSong({
+    title: "情歌王",
+    lyricsFile: qinggewang,
+  }),
+  createLoomSong({
+    title: "情永落",
+    lyricsFile: qingyongluo,
+  }),
+  createLoomSong({
+    title: "三十日",
+    lyricsFile: sanshiri,
+  }),
+  createLoomSong({
+    title: "我有今日",
+    lyricsFile: woyoujinri,
+  }),
+  createLoomSong({
+    title: "许愿",
+    lyricsFile: xuyuan,
+  }),
+  createLoomSong({
+    title: "眼睛不能没眼泪",
+    lyricsFile: yanjingbunengmeiyanlei,
   }),
 ];

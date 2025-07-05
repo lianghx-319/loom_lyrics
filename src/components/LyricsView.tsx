@@ -30,7 +30,7 @@ export function LyricsView({ song, isDark }: LyricsViewProps) {
   const sections = useMemo(() => {
     const rawLyrics = getLyricsParts(song.lyricsFile);
     const parsedSections: LyricSection[] = [];
-    let currentSection: LyricSection | null = null;
+    let currentSection: LyricSection = { name: "demo", lines: [] };
     let globalLineIndex = 0;
 
     rawLyrics.forEach((part: LyricPart) => {
