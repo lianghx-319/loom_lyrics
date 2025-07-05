@@ -29,8 +29,13 @@ import believerLyrics from "../assets/lyrics/believer.txt?raw";
 import sharksLyrics from "../assets/lyrics/sharks.txt?raw";
 import walkingTheWireLyrics from "../assets/lyrics/walking-the-wire.txt?raw";
 import naturalLyrics from "../assets/lyrics/natural.txt?raw";
+import 很需要 from "../assets/lyrics/a.txt?raw";
 
 export const SONGS: Song[] = [
+  createLoomSong({
+    title: "很需要",
+    lyricsFile: 很需要,
+  }),
   createLoomSong({
     title: "Fire in this hills",
     lyricsFile: fireInTheseHillsLyrics,
