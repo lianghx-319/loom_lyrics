@@ -100,12 +100,6 @@ export default function AppRouter() {
     return () => darkModeMediaQuery.removeEventListener('change', handleChange);
   }, []);
 
-  const toggleTheme = () => {
-    const newTheme = !isDark;
-    setIsDark(newTheme);
-    localStorage.setItem('theme', newTheme ? 'dark' : 'light');
-  };
-
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
