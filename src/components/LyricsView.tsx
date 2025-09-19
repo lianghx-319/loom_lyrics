@@ -1,111 +1,30 @@
-import { useMemo } from "react";
-import { Song } from "../types";
-import { getLyricsParts, LyricPart } from "lyrics-structure";
-import { SongItem } from "./SongItem";
-import { useLocalStorage } from "react-use";
-
-interface LyricLine {
-  text: string;
-  index: number;
-}
-
-interface LyricSection {
-  name: string;
-  lines: LyricLine[];
-}
+import { parseLRCFile } from '../utils/lyricsParser';
 
 interface LyricsViewProps {
-  song: Song;
+  song: {
+    id: string;
+    title: string;
+    artist: string;
+    lyrics: string;
+  };
   isDark: boolean;
 }
 
 export function LyricsView({ song, isDark }: LyricsViewProps) {
-  const [highlights, setHighlights] = useLocalStorage<Record<number, boolean>>(
-    `lyrics-highlights-${song.id}`,
-    {},
-  );
-  const storedHighlights = highlights || {};
-
-  // Parse lyrics into sections using useMemo
-  const sections = useMemo(() => {
-    const rawLyrics = getLyricsParts(song.lyricsFile);
-    const parsedSections: LyricSection[] = [];
-    let currentSection: LyricSection = { name: "demo", lines: [] };
-    let globalLineIndex = 0;
-
-    rawLyrics.forEach((part: LyricPart) => {
-      if (part.name) {
-        // This is a section header
-        if (currentSection) {
-          parsedSections.push(currentSection);
-        }
-        currentSection = {
-          name: part.name,
-          lines: [],
-        };
-      } else if (part.content && currentSection) {
-        // This is lyrics content, split by newlines
-        const lines = part.content.split("\n");
-        lines.forEach((line) => {
-          if (line.trim()) {
-            currentSection!.lines.push({
-              text: line.trim(),
-              index: globalLineIndex,
-            });
-            globalLineIndex++;
-          }
-        });
-      }
-    });
-
-    if (currentSection) {
-      parsedSections.push(currentSection);
-    }
-
-    return parsedSections;
-  }, [song.lyricsFile]);
-
-  // Toggle highlight state
-  const toggleHighlight = (lineIndex: number) => {
-    setHighlights({
-      ...storedHighlights,
-      [lineIndex]: !storedHighlights[lineIndex],
-    });
-  };
-
+  const parsedLyrics = parseLRCFile(song.lyrics, song.title);
+  
   return (
-    <div
-      id={song.id}
-      className={`max-w-2xl mx-auto rounded-lg shadow-md ${isDark ? "bg-gray-800" : "bg-white"}`}
-    >
-      <div
-        className={`sticky top-0 z-10 rounded-t-lg shadow-sm ${isDark ? "bg-gray-800" : "bg-white"}`}
-      >
-        <SongItem song={song} isDark={isDark} />
-      </div>
-      <div className="p-2 flex flex-col gap-5">
-        {sections.map((section, sectionIndex) => (
-          <div
-            key={`${section.name}-${sectionIndex}`}
-            className="flex flex-col gap-0.5"
-          >
-            {section.lines.map((line) => (
-              <div
-                key={`${line.index}`}
-                onClick={() => toggleHighlight(line.index)}
-                className={`w-full font-medium leading-tight text-left px-2 py-0.5 rounded transition-colors cursor-pointer ${
-                  storedHighlights[line.index]
-                    ? isDark
-                      ? "bg-red-900/40 hover:bg-red-800/50 text-red-100"
-                      : "bg-red-100 hover:bg-red-200 text-red-900"
-                    : isDark
-                      ? "hover:bg-gray-700 text-white"
-                      : "hover:bg-gray-100 text-gray-900"
-                }`}
-              >
-                {line.text}
-              </div>
-            ))}
+    <div className={`p-4 sm:p-6 rounded-lg ${isDark ? 'bg-gray-800' : 'bg-white'}`}>
+      <h2 className={`text-lg sm:text-xl font-semibold mb-3 sm:mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+        {song.title} - Lyrics
+      </h2>
+      <div className={`space-y-1 sm:space-y-2 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+        {parsedLyrics.lines.map((line, index) => (
+          <div key={index} className="flex items-start space-x-2 sm:space-x-3">
+            <span className="text-xs sm:text-sm opacity-60 min-w-12 sm:min-w-16">
+              {Math.floor(line.time / 60)}:{(line.time % 60).toFixed(2).padStart(5, '0')}
+            </span>
+            <span className="flex-1 text-sm sm:text-base">{line.text}</span>
           </div>
         ))}
       </div>

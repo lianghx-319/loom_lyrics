@@ -33,9 +33,9 @@ export default defineConfig({
         ],
       },
       manifest: {
-        name: "Imagine Dragons Loom Lyrics",
-        short_name: "Loom Lyrics",
-        description: "Imagine Dragons Loom Lyrics Application",
+        name: "Multi-Artist Lyrics",
+        short_name: "Lyrics App",
+        description: "Lyrics viewer for multiple artists with dynamic routing",
         theme_color: "#ffffff",
         icons: [
           {
@@ -52,6 +52,11 @@ export default defineConfig({
       },
     }),
   ],
+  server: {
+    fs: {
+      allow: ['..']
+    }
+  },
   build: {
     outDir: "dist",
     assetsDir: "assets",
